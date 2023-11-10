@@ -99,6 +99,7 @@ function showUsers(name, age, email) {
       persons.removeChild(inputEmailEl);
       persons.removeChild(inputAgeEl);
       persons.removeChild(actionEl);
+      localStorage.removeItem(persons);
     }
   });
 
@@ -135,4 +136,83 @@ btn.addEventListener("click", function (e) {
   saveToLoacalStorage();
 
   form.reset();
+});
+
+window.addEventListener("load", function () {
+  let data = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
+  data;
+
+  if (data.length) {
+    data.forEach((el) => {
+      // Name
+      const inputNameEl = document.createElement("input");
+      inputNameEl.setAttribute("readonly", "readonly");
+      inputNameEl.type = "text";
+      inputNameEl.value = el.name;
+
+      // Age
+      const inputAgeEl = document.createElement("input");
+      inputAgeEl.setAttribute("readonly", "readonly");
+      inputAgeEl.type = "text";
+      inputAgeEl.value = el.age;
+
+      // Email
+      const inputEmailEl = document.createElement("input");
+      inputEmailEl.setAttribute("readonly", "readonly");
+      inputEmailEl.type = "text";
+      inputEmailEl.value = el.email;
+
+      // Actions
+      const actionEl = document.createElement("div");
+      actionEl.classList.add("actions");
+
+      // edit button
+      const editBtn = document.createElement("button");
+      editBtn.classList.add("edit");
+      editBtn.innerHTML = "Edit";
+
+      // edit user function
+      editBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        if (editBtn.innerText.toLowerCase() == "edit") {
+          inputNameEl.removeAttribute("readonly");
+          inputNameEl.focus();
+          editBtn.innerText = "Save";
+        } else {
+          inputNameEl.setAttribute("readonly", "readonly");
+          editBtn.innerText = "Edit";
+        }
+      });
+
+      // delete button
+      const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("delete");
+      deleteBtn.innerHTML = "Delete";
+
+      // Delete function
+
+      deleteBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let confirmDelete = confirm("Rosdan ham ochirmoqchimisz? ");
+        if (confirmDelete) {
+          persons.removeChild(inputNameEl);
+          persons.removeChild(inputEmailEl);
+          persons.removeChild(inputAgeEl);
+          persons.removeChild(actionEl);
+          localStorage.removeItem(el);
+        }
+      });
+
+      actionEl.appendChild(editBtn);
+      actionEl.appendChild(deleteBtn);
+
+      persons.appendChild(inputNameEl);
+      persons.appendChild(inputEmailEl);
+      persons.appendChild(inputAgeEl);
+      persons.appendChild(actionEl);
+    });
+  }
 });
