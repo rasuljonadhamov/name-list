@@ -29,11 +29,11 @@ input {
 
 .lists-wrapper {
   display: flex;
-  gap: 130px;
+  gap: 110px;
   margin-bottom: 10px;
 }
 
-#persons input {
+.persons input {
   outline: none;
   border: none;
   background-color: inherit;
@@ -55,4 +55,30 @@ input[type="submit"] {
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+#edit {
+  background-color: brown;
+}
+
+#delete {
+  background-color: red;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.persons {
+  display: flex;
 }
