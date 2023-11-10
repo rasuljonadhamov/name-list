@@ -33,7 +33,7 @@ input {
   margin-bottom: 10px;
 }
 
-.persons input {
+#persons input {
   outline: none;
   border: none;
   background-color: inherit;
@@ -65,11 +65,11 @@ button {
   color: #fff;
 }
 
-#edit {
+.edit {
   background-color: brown;
 }
 
-#delete {
+.delete {
   background-color: red;
 }
 
@@ -77,8 +77,11 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
-.persons {
+#persons {
   display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
 }
