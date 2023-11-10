@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Lists</title>
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <header class="container">
@@ -12,26 +13,25 @@
 
     <main class="container">
       <form id="form-wrapper">
-        <input type="text" placeholder="Enter Name" />
-        <input type="text" placeholder="Enter Age" />
-        <input type="text" placeholder="Enter Email" />
-        <input type="submit" value="Save" />
+        <input id="name" type="text" placeholder="Enter Name" />
+        <input id="age" type="text" placeholder="Enter Age" />
+        <input id="email" type="text" placeholder="Enter Email" />
+        <input id="btn" type="submit" value="Save" />
       </form>
     </main>
 
-    <section class="container">
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Email</th>
-        </tr>
-        <tr>
-          <td>Rasuljon</td>
-          <td>21</td>
-          <td>rasuljon@gmail.com</td>
-        </tr>
-      </table>
+    <section class="container inner-wrapper">
+        <div class="lists-wrapper">
+          <h2>Name</h2>
+          <h2>Age</h2>
+          <h2>Email</h2>
+        </div>
+        <form id="persons">
+          <input type="text" placeholder="Rasuljon" readonly ></input >
+          <input type="text" placeholder="21" readonly></input>
+          <input type="text" placeholder="rasuljon@gmail.com" readonly></input>
+        </form>
+
     </section>
 
     <script src="./script.js"></script>
