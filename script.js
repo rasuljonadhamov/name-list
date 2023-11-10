@@ -70,7 +70,7 @@ function showUsers(name, age, email) {
   editBtn.classList.add("edit");
   editBtn.innerHTML = "Edit";
 
-  // edit user
+  // edit user function
   editBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
@@ -88,6 +88,19 @@ function showUsers(name, age, email) {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete");
   deleteBtn.innerHTML = "Delete";
+
+  // Delete function
+
+  deleteBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    let confirmDelete = confirm("Rosdan ham ochirmoqchimisz? ");
+    if (confirmDelete) {
+      persons.removeChild(inputNameEl);
+      persons.removeChild(inputEmailEl);
+      persons.removeChild(inputAgeEl);
+      persons.removeChild(actionEl);
+    }
+  });
 
   actionEl.appendChild(editBtn);
   actionEl.appendChild(deleteBtn);
